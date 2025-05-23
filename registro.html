@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - ShopCop Computadoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos base y reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Panel izquierdo */
+        .panel {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            background: linear-gradient(135deg, #707070 0%, #4a4a4a 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .brand-logo {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            z-index: 10;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            max-height: 100%;
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-container {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 50vh;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            object-fit: contain;
+        }
+
+        .slogan {
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        .slogan h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+            color: #4cc9f0;
+        }
+
+        .slogan p {
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            opacity: 0.9;
+        }
+
+        /* Panel derecho */
+        .right-panel {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            max-width: 600px;
+            padding: clamp(1.5rem, 3vw, 3rem);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .register-title {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+
+        .register-subtitle {
+            color: #666;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+            font-size: clamp(0.9rem, 1.2vw, 1rem);
+        }
+
+        .register-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: clamp(1rem, 1.5vw, 1.5rem);
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #444;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: clamp(0.8rem, 1.2vw, 1rem) clamp(0.8rem, 1.2vw, 1rem) clamp(0.8rem, 1.2vw, 1rem) clamp(2.2rem, 3vw, 2.5rem);
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #4cc9f0;
+            box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
+            outline: none;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: clamp(0.8rem, 1.2vw, 1rem);
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: clamp(0.8rem, 1.2vw, 1rem);
+            background-color: #1a1a2e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .register-btn:hover {
+            background-color: #16213e;
+        }
+
+        .register-btn i {
+            margin-right: 0.5rem;
+        }
+
+        .login-link {
+            text-align: center;
+            margin: clamp(1rem, 1.5vw, 1.5rem) 0;
+            color: #666;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+        }
+
+        .login-link a {
+            color: #4cc9f0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .social-login {
+            text-align: center;
+            margin-top: clamp(1rem, 2vw, 2rem);
+        }
+
+        .social-login p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            width: clamp(35px, 4vw, 40px);
+            height: clamp(35px, 4vw, 40px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+            font-size: clamp(0.9rem, 1.2vw, 1rem);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-btn.google {
+            background-color: #DB4437;
+        }
+
+        .social-btn.facebook {
+            background-color: #4267B2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .left-panel {
+                padding: 6rem 1rem 2rem;
+                min-height: 40vh;
+            }
+            
+            .right-panel {
+                max-width: 100%;
+                padding: 2rem 1.5rem;
+                box-shadow: none;
+            }
+            
+            .image-container img {
+                max-height: 30vh;
+            }
+
+            .brand-logo {
+                top: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .left-panel {
+                padding: 5rem 1rem 1.5rem;
+            }
+            
+            .right-panel {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Panel izquierdo con imagen y frase -->
+        <div class="panel left-panel">
+            <div class="brand-logo">
+                <img src="Imagenes/logo.png" alt="ShopCop Logo" class="logo-img">
+            </div>
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Componentes de computadora">
+            </div>
+            <div class="slogan">
+                <h2>Únete a la comunidad ShopCod</h2>
+                <p>Accede a ofertas exclusivas en componentes, periféricos y equipos completos</p>
+            </div>
+        </div>
+
+        <!-- Panel derecho con formulario de registro -->
+        <div class="panel right-panel">
+            <h1 class="register-title">Crear Cuenta</h1>
+            <p class="register-subtitle">Regístrate para comprar en nuestra tienda de tecnología</p>
+            
+            <form id="registerForm" class="register-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Teléfono (opcional)</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+51 551 234 567">
+                    <i class="fas fa-phone"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar contraseña</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Repite tu contraseña" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="register-btn">
+                        <i class="fas fa-user-plus"></i> Registrarse
+                    </button>
+                </div>
+                
+                <div class="login-link">
+                    ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+                </div>
+                
+                <div class="social-login">
+                    <p>O regístrate con:</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+                        <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validaciones básicas
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Validar nombre
+            if (nombre === '') {
+                alert('Por favor ingresa tu nombre completo');
+                return;
+            }
+            
+            // Validar email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor ingresa un correo electrónico válido');
+                return;
+            }
+            
+            // Validar contraseña
+            if (password.length < 8) {
+                alert('La contraseña debe tener al menos 8 caracteres');
+                return;
+            }
+            
+            // Validar confirmación de contraseña
+            if (password !== confirmPassword) {
+                alert('Las contraseñas no coinciden');
+                return;
+            }
+            
+            // Si todo es válido, mostrar mensaje de éxito
+            alert('¡Registro exitoso! Bienvenido a ShopCop');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - ShopCop Computadoras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos base y reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        /* Panel izquierdo */
+        .panel {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            background: linear-gradient(135deg, #707070 0%, #4a4a4a 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .brand-logo {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            z-index: 10;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            max-height: 100%;
+            max-width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        .image-container {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 40vh;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            object-fit: contain;
+        }
+
+        .social-login {
+            margin-top: auto;
+            padding: 1rem;
+        }
+
+        .social-login p {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-weight: 500;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .google-btn {
+            background-color: #DB4437;
+        }
+
+        .facebook-btn {
+            background-color: #4267B2;
+        }
+
+        /* Panel derecho */
+        .right-panel {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            max-width: 500px;
+            padding: clamp(1.5rem, 3vw, 3rem);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-title {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+
+        .login-subtitle {
+            color: #666;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+            font-size: clamp(0.9rem, 1.2vw, 1rem);
+        }
+
+        .login-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: clamp(1rem, 1.5vw, 1.5rem);
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #444;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: clamp(0.8rem, 1.2vw, 1rem) clamp(0.8rem, 1.2vw, 1rem) clamp(0.8rem, 1.2vw, 1rem) clamp(2.2rem, 3vw, 2.5rem);
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #4cc9f0;
+            box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
+            outline: none;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: clamp(0.8rem, 1.2vw, 1rem);
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: clamp(0.8rem, 1.2vw, 1rem);
+            background-color: #1a1a2e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .login-btn:hover {
+            background-color: #16213e;
+        }
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+        }
+
+        .remember-me input {
+            margin-right: 0.5rem;
+        }
+
+        .forgot-password a {
+            color: #4cc9f0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .register-link {
+            text-align: center;
+            margin: clamp(1rem, 1.5vw, 1.5rem) 0;
+            color: #666;
+            font-size: clamp(0.9rem, 1.1vw, 1rem);
+        }
+
+        .register-link a {
+            color: #4cc9f0;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .left-panel {
+                padding: 6rem 1rem 2rem;
+                min-height: 40vh;
+            }
+            
+            .right-panel {
+                max-width: 100%;
+                padding: 2rem 1.5rem;
+                box-shadow: none;
+            }
+            
+            .image-container img {
+                max-height: 30vh;
+            }
+
+            .brand-logo {
+                top: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+            }
+
+            .social-buttons {
+                flex-direction: row;
+                justify-content: center;
+                max-width: 100%;
+            }
+
+            .social-btn {
+                padding: 0.8rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .left-panel {
+                padding: 5rem 1rem 1.5rem;
+            }
+            
+            .right-panel {
+                padding: 1.5rem 1rem;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Panel izquierdo con imagen y opciones sociales -->
+        <div class="panel left-panel">
+            <div class="brand-logo">
+                <img src="Imagenes/logo.png" alt="ShopCop Logo" class="logo-img">
+            </div>
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Componentes de computadora">
+            </div>
+            <div class="social-login">
+                <p>Inicia sesión rápidamente con:</p>
+                <div class="social-buttons">
+                    <a href="#" class="social-btn google-btn">
+                        <i class="fab fa-google"></i> Continuar con Google
+                    </a>
+                    <a href="#" class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i> Continuar con Facebook
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel derecho con formulario de login -->
+        <div class="panel right-panel">
+            <h1 class="login-title">Iniciar Sesión</h1>
+            <p class="login-subtitle">Ingresa a tu cuenta de ShopCop</p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <div class="login-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Recordarme</label>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
+                
+                <div class="register-link">
+                    ¿No tienes cuenta? <a href="registro.html">Regístrate ahora</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validaciones básicas
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            
+            // Validar email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor ingresa un correo electrónico válido');
+                return;
+            }
+            
+            // Validar contraseña
+            if (password.length < 6) {
+                alert('La contraseña debe tener al menos 6 caracteres');
+                return;
+            }
+            
+            // Si todo es válido, mostrar mensaje de éxito
+            alert('Inicio de sesión exitoso. Redirigiendo...');
+            this.reset();
+            
+            // Aquí normalmente enviarías los datos al servidor
+            // y redirigirías al usuario después del login
+        });
+
+        // Simulación de login con redes sociales
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const provider = this.classList.contains('google-btn') ? 'Google' : 'Facebook';
+                alert(`Redirigiendo a autenticación con ${provider}`);
+            });
+        });
+    </script>
+</body>
+</html>

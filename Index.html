@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopCop</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+  <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <!-- navegación -->
+<nav>
+    <div class="logo">
+      <img src="Imagenes/logo.png" alt="ShopCod Logo" />
+      ShopCod
+    </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="nav-menu" id="nav">
+      <li><a href="Index.html"><i class="fas fa-home"></i> Inicio</a></li>
+
+      <li class="has-submenu">
+        <a href="#"><i class="fas fa-laptop"></i> Productos <i class="fas fa-caret-down"></i></a>
+        <ul>
+          <li><a href="portatiles.html">Portátiles</a></li>
+          <li><a href="#">PC de Escritorio</a></li>
+          <li><a href="#">Componentes</a></li>
+          <li><a href="#">Accesorios</a></li>
+          <li><a href="#">Monitores</a></li>
+        </ul>
+      </li>
+
+      <li class="has-submenu">
+        <a href="#"><i class="fas fa-user"></i> Cuenta <i class="fas fa-caret-down"></i></a>
+        <ul>
+          <li><a href="login.html">Iniciar Sesión</a></li>
+          <li><a href="registro.html">Crear Cuenta</a></li>
+          <li><a href="#">Recuperar Clave</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="icons">
+      <div class="search-container">
+  <i class="fas fa-search search-toggle"></i>
+  <div class="search-panel" id="searchPanel">
+    <input type="text" placeholder="Buscar productos..." />
+    <button><i class="fas fa-arrow-right"></i></button>
+  </div>
+</div>
+      <a href="Carrito.html" title="Carrito"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+  </nav>
+
+  <!-- Sección de Categorías de Productos -->
+<section class="categorias">
+  <h2>Categorías de Productos</h2>
+  <div class="contenedor-categorias">
+    <a href="portatiles.html" class="categoria">
+      <img src="Imagenes/7.png"Portátiles">
+      <h3>Portátiles</h3>
+    </a>
+    <a href="#" class="categoria">
+      <img src="Imagenes/8.png" alt="PC de Escritorio">
+      <h3>PC de Escritorio</h3>
+    </a>
+    <a href="#" class="categoria">
+      <img src="Imagenes/9.png" alt="Componentes">
+      <h3>Componentes</h3>
+    </a>
+    <a href="#" class="categoria">
+      <img src="Imagenes/10.png" alt="Accesorios">
+      <h3>Accesorios</h3>
+    </a>
+    <a href="#" class="categoria">
+      <img src="Imagenes/11.png" alt="Monitores">
+      <h3>Monitores</h3>
+    </a>
+  </div>
+</section>
+
+  <!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/51921941306" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Chat">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+  <!-- Sección de productos en oferta -->
+  <section class="ofertas">
+    <h2>🔥 Productos en Oferta</h2>
+    <div class="productos">
+      <div class="producto">
+        <img src="Imagenes/acer.png" alt="Laptop 1">
+        <h3>Laptop Acer Aspire</h3>
+        <p class="precio">Antes: <del>S/ 2500</del> | Ahora: <span>S/ 2199</span></p>
+        <button>Comprar</button>
+      </div>
+      <div class="producto">
+        <img src="Imagenes/samsung.png" alt="Monitor 1">
+        <h3>Monitor Samsung 24"</h3>
+        <p class="precio">Antes: <del>S/ 699</del> | Ahora: <span>S/ 589</span></p>
+        <button>Comprar</button>
+      </div>
+      <div class="producto">
+        <img src="Imagenes/logic.png" alt="Mouse 1">
+        <h3>Mouse Logitech G203</h3>
+        <p class="precio">Antes: <del>S/ 139</del> | Ahora: <span>S/ 109</span></p>
+        <button>Comprar</button>
+      </div>
+      <div class="producto">
+        <img src="Imagenes/teclado.png" alt="Teclado Mecánico">
+        <h3>Teclado Redragon Kumara</h3>
+        <p class="precio">Antes: <del>S/ 189</del> | Ahora: <span>S/ 139</span></p>
+        <button>Comprar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de testimonios -->
+<section class="testimonios">
+  <h2>¿Qué opinan nuestros clientes?</h2>
+  <div class="contenedor-testimonios">
+    <div class="testimonio">
+      <p>"Excelente atención y entrega rápida. Mi laptop llegó en perfectas condiciones."</p>
+      <h4>- Ana R.</h4>
+    </div>
+    <div class="testimonio">
+      <p>"Muy buenos precios y garantía real. Recomiendo ShopCod al 100%."</p>
+      <h4>- Luis M.</h4>
+    </div>
+    <div class="testimonio">
+      <p>"Tienda confiable. Me asesoraron incluso después de la compra. ¡Gracias!"</p>
+      <h4>- Carla S.</h4>
+    </div>
+  </div>
+</section>
+
+  <!-- Nuestros Servicios -->
+
+  <section class="nuestros-servicios">
+    <h2>Nuestros Servicios</h2>
+    <p class="subtitulo-servicios">
+      En ShopCod nos esforzamos por ofrecerte una experiencia de compra completa, segura y eficiente.
+    </p>
+    <div class="contenedor-servicios">
+      <div class="servicio">
+        <img src="https://cdn-icons-png.flaticon.com/512/408/408187.png" alt="Envío rápido">
+        <h3>Envío Rápido</h3>
+        <p>Recibe tus productos en tiempo récord con nuestra logística eficiente a nivel nacional.</p>
+      </div>
+      <div class="servicio">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Soporte técnico">
+        <h3>Soporte Técnico</h3>
+        <p>Asistencia especializada antes, durante y después de tu compra, para garantizar tu satisfacción.</p>
+      </div>
+      <div class="servicio">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Garantía">
+        <h3>Garantía de Producto</h3>
+        <p>Todos nuestros productos cuentan con garantía para brindarte seguridad y respaldo.</p>
+      </div>
+      <div class="servicio">
+        <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png" alt="Pagos seguros">
+        <h3>Pagos Seguros</h3>
+        <p>Múltiples métodos de pago con plataformas cifradas para proteger tu información.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marcas con las que trabajamos -->
+<section class="marcas">
+  <h2>Trabajamos con las mejores marcas</h2>
+  <div class="logos-marcas">
+    <img src="Imagenes/intel.jpeg" alt="Intel" />
+    <img src="Imagenes/amd.jpeg" alt="AMD" />
+    <img src="Imagenes/asus.jpeg" alt="ASUS" />
+    <img src="Imagenes/hp.jpeg" alt="HP" />
+    <img src="Imagenes/lenovo.jpeg" alt="Lenovo" />
+    <img src="Imagenes/logitech.jpeg" alt="Logitech" />
+  </div>
+</section>
+
+  <!-- Contacto tienda virtual -->
+  <section class="contacto" id="contacto">
+    <h2><i class="fas fa-headset"></i> ¿Necesitas ayuda?</h2>
+    <p>Somos una tienda 100% virtual. Escríbenos por WhatsApp o por correo. Estamos disponibles todos los días.</p>
+    <a href="https://wa.me/51999988777" target="_blank"><i class="fab fa-whatsapp"></i> Atención por WhatsApp</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="Imagenes/logo.png" alt="ShopCop Logo" width="60">
+        <h3>ShopCop</h3>
+        <p>Tu tienda virtual de tecnología confiable en Perú.</p>
+        <p><i class="fas fa-map-marker-alt"></i> Atención 100% online</p>
+        <p><i class="fas fa-envelope"></i> contacto@shopcop.com</p>
+        <p><i class="fas fa-phone-alt"></i> (01) 123 4567</p>
+      </div>
+  
+      <div class="footer-links">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#">Sobre Nosotros</a></li>
+          <li><a href="#">Envíos y Entregas</a></li>
+          <li><a href="#">Política de Devoluciones</a></li>
+          <li><a href="#">Términos y Condiciones</a></li>
+          <li><a href="#">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Síguenos</h4>
+        <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 ShopCop. Todos los derechos reservados. | Tienda virtual operando en todo el Perú 🇵🇪</p>
+    </div>
+  </footer>
+
+   <script>
+    function toggleMenu() {
+      document.getElementById("nav").classList.toggle("active");
+    }
+
+    // Submenús en móvil por clic
+    const submenuParents = document.querySelectorAll(".has-submenu");
+
+    submenuParents.forEach(item => {
+      item.addEventListener("click", function (e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          this.classList.toggle("active");
+        }
+      });
+    });
+
+    // Mostrar/ocultar panel de búsqueda
+document.querySelector(".search-toggle").addEventListener("click", function (e) {
+  e.stopPropagation(); // evita que se cierre al hacer clic en el ícono
+  const panel = document.getElementById("searchPanel");
+  panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+});
+
+// Evita que se cierre cuando se hace clic dentro del panel
+document.getElementById("searchPanel").addEventListener("click", function (e) {
+  e.stopPropagation();
+});
+
+// Cierra el panel si se hace clic fuera de él
+document.addEventListener("click", function () {
+  document.getElementById("searchPanel").style.display = "none";
+});
+  </script>
+
+
+</body>
+</html>
